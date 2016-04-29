@@ -1,14 +1,16 @@
 package hudson.plugins.performance;
 
-import hudson.model.ModelObject;
 import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
+import hudson.model.ModelObject;
+import hudson.plugins.performance.report.PerformanceReport;
+import hudson.plugins.performance.report.PerformanceReportPosition;
+import hudson.plugins.performance.report.UriReport;
+import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.StaplerResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-import org.kohsuke.stapler.StaplerRequest;
-import org.kohsuke.stapler.StaplerResponse;
 
 public class TrendReportGraphs implements ModelObject {
 
@@ -17,23 +19,19 @@ public class TrendReportGraphs implements ModelObject {
   private PerformanceReport performanceReport;
   private AbstractProject<?, ?> project;
 
-  public TrendReportGraphs(final AbstractProject<?, ?> project,
-      final AbstractBuild<?, ?> build, final StaplerRequest request,
-      String filename, PerformanceReport performanceReport) {
+  public TrendReportGraphs(final AbstractProject<?, ?> project, final AbstractBuild<?, ?> build, final StaplerRequest request, String filename, PerformanceReport performanceReport) {
     this.build = build;
     this.filename = filename;
     this.performanceReport = performanceReport;
     this.project = project;
   }
 
-  public void doRespondingTimeGraph(StaplerRequest request,
-      StaplerResponse response) throws IOException {
+  public void doRespondingTimeGraph(StaplerRequest request, StaplerResponse response) throws IOException {
 
     PerformanceReportPosition performanceReportPosition = new PerformanceReportPosition();
     request.bindParameters(performanceReportPosition);
 
-    PerformanceBuildAction performanceBuildAction = build
-        .getAction(PerformanceBuildAction.class);
+    PerformanceBuildAction performanceBuildAction = build.getAction(PerformanceBuildAction.class);
 
     if (performanceBuildAction != null) {
       if (performanceReport != null) {

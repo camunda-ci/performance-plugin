@@ -1,34 +1,26 @@
 package hudson.plugins.performance;
 
-import hudson.model.ModelObject;
 import hudson.model.AbstractProject;
-import hudson.plugins.performance.CookieHandler;
+import hudson.model.ModelObject;
+import hudson.plugins.performance.util.CookieHandler;
+import net.sf.json.JSONException;
+import net.sf.json.JSONObject;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
+import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.StaplerResponse;
 
-
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-
-import net.sf.json.JSONException;
-import net.sf.json.JSONObject;
-
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
-import org.kohsuke.stapler.StaplerRequest;
-import org.kohsuke.stapler.StaplerResponse;
 
 /**
  * Configures the trend graph of this plug-in.
@@ -51,19 +43,14 @@ public class GraphConfigurationDetail implements ModelObject {
   /** The build step to consider. */
   private int buildStep;
   
-
   public static final int DEFAULT_COUNT = 0;
-  
-  public static final int DEFAULT_STEP = 1; 
+  public static final int DEFAULT_STEP = 1;
 
   public static final String DEFAULT_DATE = "dd/MM/yyyy";
 
   public static final String NONE_CONFIG = "NONE";
-
   public static final String BUILD_CONFIG = "BUILD";
-
   public static final String DATE_CONFIG = "DATE";
-  
   public static final String BUILDNTH_CONFIG = "BUILDNTH";
 
     public boolean isNone() {
@@ -89,11 +76,9 @@ public class GraphConfigurationDetail implements ModelObject {
 
     static DateFormat format = new SimpleDateFormat(DEFAULT_DATE);
 
-  public GraphConfigurationDetail(final AbstractProject<?, ?> project,
-      final String pluginName, final StaplerRequest request) {
+  public GraphConfigurationDetail(final AbstractProject<?, ?> project, final String pluginName, final StaplerRequest request) {
 
-    String value = createCookieHandler(pluginName).getValue(
-        request.getCookies());
+    String value = createCookieHandler(pluginName).getValue(request.getCookies());
     List<Integer> initializationListResult = initializeFrom(value);
     if (!initializationListResult.isEmpty()) {
       File defaultsFile = createDefaultsFile(project, pluginName);

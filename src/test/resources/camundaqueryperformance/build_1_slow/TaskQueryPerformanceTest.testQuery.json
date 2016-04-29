@@ -1,0 +1,89 @@
+{
+  "testName" : "TaskQueryPerformanceTest.testQuery",
+  "configuration" : {
+    "numberOfThreads" : 1,
+    "numberOfRuns" : 1,
+    "databaseName" : "com.mysql.jdbc.Driver",
+    "testWatchers" : "org.camunda.bpm.qa.performance.engine.sqlstatementlog.StatementLogPerfTestWatcher",
+    "historyLevel" : "full",
+    "startTime" : 1462828125387,
+    "platform" : "camunda BPM"
+  },
+  "passResults" : [ {
+    "duration" : 3426,
+    "numberOfThreads" : 1,
+    "stepResults" : [ {
+      "resultData" : [ {
+        "statementType" : "SELECT_MAP",
+        "statement" : "selectTaskCountByQueryCriteria",
+        "durationMs" : 47,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':false,'authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true},'authorizationCheckEnabled':false},'tenantCheck':{'isTenantCheckEnabled':false,'tenantCheckEnabled':false},'maxResults':2147483647,'firstResult':0,'orderBy':'RES.ID_ asc','unassigned':false,'noDelegationState':false,'includeAssignedTasks':false,'followUpNullAccepted':false,'excludeSubtasks':false,'initializeFormKeys':false,'taskNameCaseInsensitive':false,'taskPermissionChecks':{'disjunctive':true},'tenantIdSet':false,'firstRow':1,'lastRow':2147483647}"
+      }, {
+        "statementType" : "SELECT_LIST",
+        "statement" : "selectTaskByQueryCriteria",
+        "durationMs" : 13,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':false,'authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true},'authorizationCheckEnabled':false},'tenantCheck':{'isTenantCheckEnabled':false,'tenantCheckEnabled':false},'maxResults':20,'firstResult':0,'orderBy':'RES.ID_ asc','unassigned':false,'noDelegationState':false,'includeAssignedTasks':false,'followUpNullAccepted':false,'excludeSubtasks':false,'initializeFormKeys':false,'taskNameCaseInsensitive':false,'taskPermissionChecks':{'disjunctive':true},'tenantIdSet':false,'firstRow':1,'lastRow':21}"
+      }, {
+        "statementType" : "SELECT_MAP",
+        "statement" : "selectTaskCountByQueryCriteria",
+        "durationMs" : 491,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':true,'authUserId':'someUser','authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}]},'authorizationCheckEnabled':true},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':2147483647,'firstResult':0,'orderBy':'RES.ID_ asc','unassigned':false,'noDelegationState':false,'includeAssignedTasks':false,'followUpNullAccepted':false,'excludeSubtasks':false,'initializeFormKeys':false,'taskNameCaseInsensitive':false,'taskPermissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}]},'tenantIdSet':false,'firstRow':1,'lastRow':2147483647}"
+      }, {
+        "statementType" : "SELECT_LIST",
+        "statement" : "selectTaskByQueryCriteria",
+        "durationMs" : 511,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':true,'authUserId':'someUser','authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}]},'authorizationCheckEnabled':true},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':20,'firstResult':0,'orderBy':'RES.ID_ asc','unassigned':false,'noDelegationState':false,'includeAssignedTasks':false,'followUpNullAccepted':false,'excludeSubtasks':false,'initializeFormKeys':false,'taskNameCaseInsensitive':false,'taskPermissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}]},'tenantIdSet':false,'firstRow':1,'lastRow':21}"
+      }, {
+        "statementType" : "SELECT_LIST",
+        "statement" : "selectAuthorizedGroupIds",
+        "durationMs" : 1,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':false,'authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true},'authorizationCheckEnabled':false},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':2147483647,'firstResult':0,'orderBy':'RES.ID_ asc','firstRow':1,'lastRow':2147483647}"
+      }, {
+        "statementType" : "SELECT_MAP",
+        "statement" : "selectTaskCountByQueryCriteria",
+        "durationMs" : 431,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':true,'authUserId':'someUser','authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}]},'authorizationCheckEnabled':true},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':2147483647,'firstResult':0,'orderBy':'RES.ID_ asc','unassigned':false,'noDelegationState':false,'includeAssignedTasks':false,'followUpNullAccepted':false,'excludeSubtasks':false,'initializeFormKeys':false,'taskNameCaseInsensitive':false,'taskPermissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}]},'tenantIdSet':false,'firstRow':1,'lastRow':2147483647}"
+      }, {
+        "statementType" : "SELECT_LIST",
+        "statement" : "selectAuthorizedGroupIds",
+        "durationMs" : 1,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':false,'authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true},'authorizationCheckEnabled':false},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':2147483647,'firstResult':0,'orderBy':'RES.ID_ asc','firstRow':1,'lastRow':2147483647}"
+      }, {
+        "statementType" : "SELECT_LIST",
+        "statement" : "selectTaskByQueryCriteria",
+        "durationMs" : 471,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':true,'authUserId':'someUser','authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}]},'authorizationCheckEnabled':true},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':20,'firstResult':0,'orderBy':'RES.ID_ asc','unassigned':false,'noDelegationState':false,'includeAssignedTasks':false,'followUpNullAccepted':false,'excludeSubtasks':false,'initializeFormKeys':false,'taskNameCaseInsensitive':false,'taskPermissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}]},'tenantIdSet':false,'firstRow':1,'lastRow':21}"
+      }, {
+        "statementType" : "SELECT_LIST",
+        "statement" : "selectAuthorizedGroupIds",
+        "durationMs" : 1,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':false,'authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true},'authorizationCheckEnabled':false},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':2147483647,'firstResult':0,'orderBy':'RES.ID_ asc','firstRow':1,'lastRow':2147483647}"
+      }, {
+        "statementType" : "SELECT_MAP",
+        "statement" : "selectTaskCountByQueryCriteria",
+        "durationMs" : 433,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':true,'authUserId':'someUser','authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}]},'authorizationCheckEnabled':true},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':2147483647,'firstResult':0,'orderBy':'RES.ID_ asc','unassigned':false,'noDelegationState':false,'includeAssignedTasks':false,'followUpNullAccepted':false,'excludeSubtasks':false,'initializeFormKeys':false,'taskNameCaseInsensitive':false,'taskPermissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}]},'tenantIdSet':false,'firstRow':1,'lastRow':2147483647}"
+      }, {
+        "statementType" : "SELECT_LIST",
+        "statement" : "selectAuthorizedGroupIds",
+        "durationMs" : 0,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':false,'authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true},'authorizationCheckEnabled':false},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':2147483647,'firstResult':0,'orderBy':'RES.ID_ asc','firstRow':1,'lastRow':2147483647}"
+      }, {
+        "statementType" : "SELECT_LIST",
+        "statement" : "selectTaskByQueryCriteria",
+        "durationMs" : 467,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':true,'authUserId':'someUser','authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}]},'authorizationCheckEnabled':true},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':20,'firstResult':0,'orderBy':'RES.ID_ asc','unassigned':false,'noDelegationState':false,'includeAssignedTasks':false,'followUpNullAccepted':false,'excludeSubtasks':false,'initializeFormKeys':false,'taskNameCaseInsensitive':false,'taskPermissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}]},'tenantIdSet':false,'firstRow':1,'lastRow':21}"
+      }, {
+        "statementType" : "SELECT_LIST",
+        "statement" : "selectAuthorizedGroupIds",
+        "durationMs" : 1,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':false,'authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true},'authorizationCheckEnabled':false},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':2147483647,'firstResult':0,'orderBy':'RES.ID_ asc','firstRow':1,'lastRow':2147483647}"
+      }, {
+        "statementType" : "SELECT_MAP",
+        "statement" : "selectTaskCountByQueryCriteria",
+        "durationMs" : 430,
+        "statementParameters" : "{'authCheck':{'isAuthorizationCheckEnabled':true,'authUserId':'someUser','authDefaultPerm':2147483647,'permissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_'},{'permission':'READ_TASK','perms':64,'resource':'PROCESS_DEFINITION','resourceType':6,'resourceIdQueryParam':'PROCDEF.KEY_'}]},'authorizationCheckEnabled':true},'tenantCheck':{'isTenantCheckEnabled':true,'tenantCheckEnabled':true},'maxResults':2147483647,'firstResult':0,'orderBy':'RES.ID_ asc','unassigned':false,'noDelegationState':false,'includeAssignedTasks':false,'followUpNullAccepted':false,'excludeSubtasks':false,'initializeFormKeys':false,'taskNameCaseInsensitive':false,'taskPermissionChecks':{'disjunctive':true,'atomicChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}],'allPermissionChecks':[{'permission':'READ','perms':2,'resource':'TASK','resourceType':7,'resourceIdQueryParam':'RES.ID_','authorizationNotFoundReturnValue':0}]},'tenantIdSet':false,'firstRow':1,'lastRow':2147483647}"
+      } ]
+    } ]
+  } ]
+}

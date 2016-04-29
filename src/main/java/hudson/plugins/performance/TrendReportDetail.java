@@ -2,26 +2,23 @@ package hudson.plugins.performance;
 
 import hudson.model.AbstractProject;
 import hudson.model.ModelObject;
+import org.jfree.data.category.CategoryDataset;
+import org.kohsuke.stapler.StaplerRequest;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.kohsuke.stapler.StaplerRequest;
-
-import org.jfree.data.category.CategoryDataset;
 
 /**
  * Configures the trend graph of this plug-in.
  */
-public class TrendReportDetail implements ModelObject,
-    Iterable<TrendReportDetail.Row> {
+public class TrendReportDetail implements ModelObject, Iterable<TrendReportDetail.Row> {
 
   private AbstractProject<?, ?> project;
   private String filename;
   private CategoryDataset dataSet;
 
-  public TrendReportDetail(final AbstractProject<?, ?> project,
-      final String pluginName, final StaplerRequest request, String filename,
-      CategoryDataset dataSet) {
+  public TrendReportDetail(final AbstractProject<?, ?> project, final String pluginName, final StaplerRequest request, String filename, CategoryDataset dataSet) {
     this.project = project;
     this.filename = filename;
     this.dataSet = dataSet;
