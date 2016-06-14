@@ -1,5 +1,8 @@
 package hudson.plugins.performance;
 
+/**
+ * @author Christian Lipphardt
+ */
 public class AggregatedUriReportCalculationResult implements Comparable<AggregatedUriReportCalculationResult> {
 
   private final String uri;

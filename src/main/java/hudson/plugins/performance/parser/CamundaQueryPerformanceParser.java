@@ -15,6 +15,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Christian Lipphardt
+ */
 public class CamundaQueryPerformanceParser extends AbstractParser {
 
   public static final String DEFAULT_GLOB_PATTERN = "**/target/**/*.json";

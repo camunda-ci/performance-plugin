@@ -2,6 +2,9 @@ package hudson.plugins.performance;
 
 import hudson.plugins.performance.report.UriReport;
 
+/**
+ * @author Christian Lipphardt
+ */
 public class PerformanceCalculationResult {
 
   private final String currentStaplerUri;
