@@ -568,13 +568,13 @@ public class PerformancePublisher extends Recorder {
     if (!unstableResults.isEmpty()) {
       logger.println("\nTests marking build as '" + Result.UNSTABLE + "': ");
       for (PerformanceCalculationResult unstableResult : unstableResults) {
-        logger.println(unstableResult.getCurrentStaplerUri());
+        logger.println(unstableResult.getCurrentStaplerUri() + " -> " + getRelativePercentageBasedOnComparisonType(unstableResult, comparisonType) + "%");
       }
     }
     if (!failureResults.isEmpty()) {
       logger.println("\nTests marking build as '" + Result.FAILURE + "': ");
       for (PerformanceCalculationResult failureResult : failureResults) {
-        logger.println(failureResult.getCurrentStaplerUri());
+        logger.println(failureResult.getCurrentStaplerUri() + " -> " + getRelativePercentageBasedOnComparisonType(failureResult, comparisonType) + "%");
       }
     }
 
@@ -585,6 +585,18 @@ public class PerformancePublisher extends Recorder {
         sb.append(discardedResult.getCurrentStaplerUri() + "\n");
       }
       logger.println(sb.toString());
+    }
+  }
+
+  protected double getRelativePercentageBasedOnComparisonType(PerformanceCalculationResult result, String comparisonType) {
+    if (comparisonType.equalsIgnoreCase(MODE_ART)) {
+      return result.getRelativeDiffAveragePercentage();
+    } else if (comparisonType.equalsIgnoreCase(MODE_MRT)) {
+      return result.getRelativeDiffMedianPercentage();
+    } else if (comparisonType.equalsIgnoreCase(MODE_PRT)) {
+      return result.getRelativeDiff90PercentilePercentage();
+    } else {
+      throw new IllegalArgumentException("ComparisonType of " + comparisonType + " is not supported.");
     }
   }
 
