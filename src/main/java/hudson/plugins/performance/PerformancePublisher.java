@@ -883,6 +883,9 @@ public class PerformancePublisher extends Recorder {
 
       AbstractBuild<?, ?> previousBuild = build;
       for (int i = 0; i < buildNumbers[0]; i++) {
+        if (previousBuild == null) {
+          break;
+        }
         AbstractBuild<?, ?> tempBuild = previousBuild.getPreviousBuild();
         previousBuilds.add(tempBuild);
         previousBuild = tempBuild;
@@ -890,7 +893,9 @@ public class PerformancePublisher extends Recorder {
     } else if (buildMode.equals(BUILD_MODE_SB)) {
       for (int buildNumber : buildNumbers) {
         AbstractBuild<?, ?> previousBuild = build.getProject().getBuildByNumber(buildNumber);
-        previousBuilds.add(previousBuild);
+        if (previousBuild != null) {
+          previousBuilds.add(previousBuild);
+        }
       }
     } else {
       throw new IllegalArgumentException("Build mode: '" + buildMode + "' is not supported.");
